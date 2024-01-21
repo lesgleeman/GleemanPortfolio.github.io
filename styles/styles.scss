@@ -6,6 +6,7 @@
 }
 
 /* Add this code to your existing CSS file or create a new one */
+/* Add this code to your existing CSS file or create a new one */
 .cookie-consent {
     position: fixed;
     bottom: 0;
@@ -18,13 +19,19 @@
     display: none; /* Initially hide the consent box */
 }
 
-#accept-cookies {
+.cookie-buttons {
+    margin-top: 10px;
+}
+
+#accept-cookies, #decline-cookies {
     background-color: var(--color-secondary);
     color: var(--color-white);
     border: none;
     padding: 8px 16px;
     cursor: pointer;
+    margin: 0 5px;
 }
+
 
 /* exisiting code */
 :root {
