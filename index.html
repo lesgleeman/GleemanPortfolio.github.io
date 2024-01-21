@@ -243,23 +243,39 @@
 <!-- Add this code within your <body> tag, preferably near the end of the body content -->
 <div id="cookie-consent" class="cookie-consent">
     <p>This website uses cookies to ensure you get the best experience on our website.</p>
-    <button id="accept-cookies">Got it!</button>
+    <div class="cookie-buttons">
+        <button id="accept-cookies">Accept</button>
+        <button id="decline-cookies">Decline</button>
+    </div>
 </div>
+
 
 <!-- JS code for cookie consent -->
 <!-- Add this code at the end of your <body> tag -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Check if the user has already accepted cookies
-    if (localStorage.getItem("cookieConsent") !== "accepted") {
-        // Show the cookie consent box
+    // Check if the user has already given consent
+    const userConsent = localStorage.getItem("cookieConsent");
+
+    if (userConsent === "accepted" || userConsent === "declined") {
+        // If consent has been given or declined, do nothing
+    } else {
+        // If consent is not given or declined, show the cookie consent box
         document.getElementById("cookie-consent").style.display = "block";
     }
 
-    // Handle the click event on the "Got it!" button
+    // Handle the click event on the "Accept" button
     document.getElementById("accept-cookies").addEventListener("click", function () {
         // Set a localStorage item to remember the user's choice
         localStorage.setItem("cookieConsent", "accepted");
+        // Hide the cookie consent box
+        document.getElementById("cookie-consent").style.display = "none";
+    });
+
+    // Handle the click event on the "Decline" button
+    document.getElementById("decline-cookies").addEventListener("click", function () {
+        // Set a localStorage item to remember the user's choice
+        localStorage.setItem("cookieConsent", "declined");
         // Hide the cookie consent box
         document.getElementById("cookie-consent").style.display = "none";
     });
