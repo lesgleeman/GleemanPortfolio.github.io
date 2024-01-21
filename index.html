@@ -244,5 +244,27 @@
     <p>This website uses cookies to ensure you get the best experience on our website.</p>
     <button id="accept-cookies">Got it!</button>
 </div>
+
+<!-- JS code for cookie consent -->
+<!-- Add this code at the end of your <body> tag -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if the user has already accepted cookies
+    if (localStorage.getItem("cookieConsent") !== "accepted") {
+        // Show the cookie consent box
+        document.getElementById("cookie-consent").style.display = "block";
+    }
+
+    // Handle the click event on the "Got it!" button
+    document.getElementById("accept-cookies").addEventListener("click", function () {
+        // Set a localStorage item to remember the user's choice
+        localStorage.setItem("cookieConsent", "accepted");
+        // Hide the cookie consent box
+        document.getElementById("cookie-consent").style.display = "none";
+    });
+});
+</script>
+
+
 </body>
 </html>
