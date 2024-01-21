@@ -5,6 +5,28 @@
     list-style: none;
 }
 
+/* Add this code to your existing CSS file or create a new one */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-grey-5);
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hide the consent box */
+}
+
+#accept-cookies {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* exisiting code */
 :root {
     --color-primary: #191d2b;
     --color-secondary: #27AE60;
