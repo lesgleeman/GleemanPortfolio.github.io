@@ -237,50 +237,5 @@
         <i class="fas fa-adjust"></i>
     </div>
     <script src="app.js"></script>
-
-<!--Cookie consent html code -->
-<!-- Add this code within your <body> tag, preferably near the end of the body content -->
-<div id="cookie-consent" class="cookie-consent">
-    <p>This website uses cookies to ensure you get the best experience on our website.</p>
-    <div class="cookie-buttons">
-        <button id="accept-cookies">Accept</button>
-        <button id="decline-cookies">Decline</button>
-    </div>
-</div>
-
-    
-<!--Cookie consent JS code -->
-<!-- Add this script at the end of your <body> tag -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Check if the user has already given consent
-    const userConsent = localStorage.getItem("cookieConsent");
-
-    if (userConsent === "accepted" || userConsent === "declined") {
-        // If consent has been given or declined, do nothing
-    } else {
-        // If consent is not given or declined, show the cookie consent box
-        document.getElementById("cookie-consent").style.display = "block";
-    }
-
-    // Handle the click event on the "Accept" button
-    document.getElementById("accept-cookies").addEventListener("click", function () {
-        // Set a localStorage item to remember the user's choice
-        localStorage.setItem("cookieConsent", "accepted");
-        // Hide the cookie consent box
-        document.getElementById("cookie-consent").style.display = "none";
-    });
-
-    // Handle the click event on the "Decline" button
-    document.getElementById("decline-cookies").addEventListener("click", function () {
-        // Set a localStorage item to remember the user's choice
-        localStorage.setItem("cookieConsent", "declined");
-        // Hide the cookie consent box
-        document.getElementById("cookie-consent").style.display = "none";
-    });
-});
-</script>
-
-
 </body>
 </html>
