@@ -16,11 +16,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-     <!--AEP Web SDK-->
-    <script src="https://assets.adobedtm.com/6a203c8a0ff8/07b4b4b09d57/launch-91491c1abcb8-development.min.js" async></script>
+<script>
+// Check if FPID cookie exists to determine if it's a new visit
+
+var fpidCookie = document.cookiematch(/(^|;) ?FPID=([^;]*)(;|$)/)
+if ( !fpidCookie) {
+
+// Generate an ID string based on UUIDv4
+var fpid generateUUID();
+
+// Set the FPID cookie with a duration of 365 days
+document.cookie "FPID=" + fpid + ";expires=" + getCookieExpiration(365) + "; path=/";
+
+}
+
+
+// Identity function to generate a UUIDv4
+
+function generateUUID() {
+return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+
+var r = Math.random() * 16 | 0,
+v = c === 'x' ? r : (r & 0x3 | 0x8);
+return v.toString(16);
+
+});
+}
+
+
+// Check if the cookie name starts with "kndctr_"
+
+if (cookieName.indexof("kndctr_") === 0) {
+
+// Delete the cookie by setting an expiration date in the past
+document.cookie = cookieName + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;"
+}
+</script>
+
     
-    <!--App Measurement-->
-    <script src="https://assets.adobedtm.com/e9875dd51dbe/d46d7ed54dd2/launch-2d5625b61d7a-development.min.js" async></script>
+    <!--AEP Web SDK-->
+    <script src="https://assets.adobedtm.com/6a203c8a0ff8/07b4b4b09d57/launch-91491c1abcb8-development.min.js" async></script>
     
 </head>  
     
