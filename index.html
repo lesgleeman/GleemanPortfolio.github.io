@@ -53,6 +53,38 @@ document.cookie = cookieName + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;"
 }
 </script>
 
+    <script>
+            if (window.alloy) {
+                if (!window.__INITIAL_TARGET_OFFERS__) {
+                    alloy("sendEvent", {
+                        xdm: {},
+                        renderDecisions: false,
+                        decisionScopes: ["__view__"]
+                    }).then( (result) => {
+                        if (result.propositions) {
+                            window.__INITIAL_TARGET_OFFERS__ = result.propositions;
+                        }
+                    }
+                    ).catch(console.error);
+                }
+            }
+        </script>
+        <script>
+            !function(e, a, n, t) {
+                var i = e.head;
+                if (i) {
+                    if (a)
+                        return;
+                    var o = e.createElement("style");
+                    o.id = "alloy-prehiding",
+                    o.innerText = n,
+                    i.appendChild(o),
+                    setTimeout(function() {
+                        o.parentNode && o.parentNode.removeChild(o)
+                    }, t)
+                }
+            }(document, document.location.href.indexOf("mboxEdit") !== -1, "body { opacity: 0 !important }", 3000);
+        </script>
     
     <!--AEP Web SDK-->
     <script src="https://assets.adobedtm.com/6a203c8a0ff8/07b4b4b09d57/launch-91491c1abcb8-development.min.js" async></script>
